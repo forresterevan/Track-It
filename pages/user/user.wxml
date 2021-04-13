@@ -4,10 +4,11 @@
       <image class="avatar" src="{{currentUser.avatar}}"></image>
       <view class="username">{{currentUser.nickname}}</view>
   </view>
-
-  <view wx:for="{{favoriteJobs}}" wx:for-item="job">
-    <view class="card-white" bindtap="navigateToShow" data-id="{{job.job_id.id}}">
+  <view wx:for="{{favoriteJobs}}" wx:for-item="jobs">
+    <view class="card-white" bindtap="navigateToShow" data-id="{{jobs.job_id.id}}">
     <view class="card-text">  
+      <view class="content2">{{jobs.job_id.title}}</view>
+      <view class="content2">{{jobs.job_id.description}}</view>
     </view>
   </view>
   </view>
