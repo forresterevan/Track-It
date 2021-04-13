@@ -75,6 +75,18 @@
           "pathName": "pages/user/user",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "landing",
+          "pathName": "pages/landing/landing",
+          "query": "",
+          "scene": null
         }
       ]
     }

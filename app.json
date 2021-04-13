@@ -1,9 +1,10 @@
 {
   "pages":[
+    "pages/landing/landing",
     "pages/index/index",
     "pages/show/show",
-    "pages/user/user",
-    "pages/landing/landing"
+    "pages/user/user"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -28,7 +29,7 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "Home"
+        "text": "Jobs"
       },
       {
         "pagePath": "pages/user/user",

@@ -21,5 +21,10 @@ Page({
         console.log(res)
       }
     })
+  },
+  navigateToIndex: function(e) {
+    wx.switchTab({
+      url: `/pages/index/index`,
+    })
   }
 })
