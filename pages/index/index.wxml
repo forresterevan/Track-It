@@ -7,5 +7,4 @@
       <view class="content">{{job.description}}</view>
     </view>
   </view>
-  <button type="primary" class="search-btn">Save Jobs</button>
 </view>

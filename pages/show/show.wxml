@@ -7,4 +7,13 @@
   <view>{{job.status}}</view>
   <view>{{job.salary_range}} rmb per sucessful Advertising</view>
   <image src="{{job.logo.path}}" class="img"></image>
+  <block wx:if="{{currentUser && fav}}">
+    <button class="btn" bindtap='saveToDatabase' type='disabled'>Added to Favorite</button>
+  </block>
+  <block wx:elif="{{currentUser && !fav}}">
+    <button class="btn" bindtap='saveToDatabase' type='primary'>Favorite</button>
+  </block>   
+  <block wx:else>
+    <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">You need Log-in</button>
+  </block>
 </view>
