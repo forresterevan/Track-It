@@ -1,0 +1,11 @@
+<view class="container">
+  <button type="primary" class="search-btn">Filter Jobs</button>
+  <view wx:for="{{jobs}}" wx:for-item="job">
+    <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
+      <image src="{{job.logo.path}}" class="img" mode="aspectFit"></image>
+      <view class="content">{{job.city}}. {{job.city}}: </view>
+      <view class="content">{{job.description}}</view>
+    </view>
+  </view>
+  <button type="primary" class="search-btn">Save Jobs</button>
+</view>

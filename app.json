@@ -1,6 +1,9 @@
 {
   "pages":[
-    "pages/index/index"
+    "pages/landing/landing",
+    "pages/index/index",
+    "pages/user/user",
+    "pages/show/show"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -10,10 +13,31 @@
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json",
+  "permission": {
+    "scope.userLocation": {
+      "desc": "Karol is STANKY"
+    }
+  },
   "plugins": {
     "sdkPlugin": {
       "version": "3.18.0",
       "provider": "wxc6b86e382a1e3294" 
     }
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "Login"
+      },
+      {
+        "pagePath": "pages/show/show",
+        "text": "Home"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "Submit Job"
+      }
+    ]
   }
 }
