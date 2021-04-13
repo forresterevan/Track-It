@@ -2,7 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/show/show",
-    "pages/user/user"
+    "pages/user/user",
     "pages/landing/landing"
   ],
   "window":{
@@ -28,15 +28,11 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "Login"
-      },
-      {
-        "pagePath": "pages/show/show",
         "text": "Home"
       },
       {
         "pagePath": "pages/user/user",
-        "text": "Submit Job"
+        "text": "User"
       }
     ]
   }
