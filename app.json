@@ -2,7 +2,7 @@
   "pages":[
     "pages/index/index",
     "pages/show/show",
-    "pages/user/user"
+    "pages/user/user",
     "pages/landing/landing"
   ],
   "window":{
