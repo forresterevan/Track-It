@@ -1,5 +1,9 @@
 <view class="container">
-  <button type="primary" class="search-btn">Filter Jobs</button>
+  <picker bindchange="bindPickerChange" value="{{jobs}}" range="{{jobsLocation}}">
+    <view class="picker">Filter{{Location[jobs]}}</view>
+    <view class="picker"> Currently selected: {{title[jobs]}}</view>
+  </picker>
+    
   <view wx:for="{{jobs}}" wx:for-item="job">
     <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
       <image src="{{job.logo.path}}" class="img" mode="aspectFit"></image>
