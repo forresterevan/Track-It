@@ -1,66 +1,22 @@
 // pages/show/show.js
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
 
   },
-
-  /**
-   * Lifecycle function--Called when page load
-   */
+  getJobs: function (id) {
+    let Jobs = new wx.BaaS.TableObject('jobs')
+    Jobs.get(id).then(res => {
+      console.log(res)
+      this.setData({
+        job: res.data
+      })
+    }, (err) => {
+      console.log(err)
+    })
+  },
+ 
   onLoad: function (options) {
-
+    let id = options.id
+    this.getJobs(id);
   },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
-  }
 })

@@ -1,66 +1,33 @@
 // pages/user/user.js
 Page({
-
-  /**
-   * Page initial data
-   */
   data: {
 
   },
 
-  /**
-   * Lifecycle function--Called when page load
-   */
+  userInfoHandler(data) {
+    wx.BaaS.auth.loginWithWechat(data).then(user => {
+        wx.setStorageSync('user', user)
+        this.setData({ currentUser: user })
+        this.getMyJobs()
+      }, err => {
+        console.log(err)
+    })
+  },
   onLoad: function (options) {
-
+    let currentUser = wx.getStorageSync('user')
+    if (currentUser) {
+      this.setData({ currentUser: currentUser })
+      this.getMyJobs()
+    }
   },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page hide
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page unload
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * Page event handler function--Called when user drop down
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * Called when page reach bottom
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * Called when user click on the top right corner to share
-   */
-  onShareAppMessage: function () {
-
+  getMyJobs: function () {
+    let favoriteJobs= new wx.BaaS.TableObject('favorite_jobs')
+      let query = new wx.BaaS.Query()
+      let currentUserId = this.data.currentUser.id.toString()
+      query.compare('user_id', '=', currentUserId)
+      favoriteJobs.setQuery(query).expand(['job_id']).find().then(res => {
+        console.log(res)
+        this.setData({favoriteJobs: res.data.objects})
+      })
   }
 })

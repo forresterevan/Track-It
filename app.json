@@ -1,9 +1,9 @@
 {
   "pages":[
-    "pages/landing/landing",
     "pages/index/index",
-    "pages/user/user",
-    "pages/show/show"
+    "pages/show/show",
+    "pages/user/user"
+    "pages/landing/landing"
   ],
   "window":{
     "backgroundTextStyle":"light",
