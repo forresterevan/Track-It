@@ -3,7 +3,11 @@ Page({
   data: {
 
   },
-
+  navigateToShow: function (e) {
+    wx.navigateTo({
+      url: `/pages/show/show?id=${e.currentTarget.dataset.id}`,
+    })
+  },
   userInfoHandler(data) {
     wx.BaaS.auth.loginWithWechat(data).then(user => {
         wx.setStorageSync('user', user)

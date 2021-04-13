@@ -11,5 +11,4 @@
       <view class="content">{{job.description}}</view>
     </view>
   </view>
-  <form action=""></form>
 </view>
