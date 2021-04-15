@@ -87,6 +87,11 @@
           "pathName": "pages/landing/landing",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "companyIndex",
+          "pathName": "pages/companyIndex/companyIndex",
+          "scene": null
         }
       ]
     }

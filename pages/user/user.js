@@ -1,7 +1,6 @@
 // pages/user/user.js
 Page({
   data: {
-
   },
   navigateToShow: function (e) {
     wx.navigateTo({
