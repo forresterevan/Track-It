@@ -14,6 +14,6 @@
     <button class="btn" bindtap='saveToDatabase' type='primary'>Favorite</button>
   </block>   
   <block wx:else>
-    <button open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">You need Log-in</button>
+    <button wx:if="{{canIUseGetUserProfile}}" bindtap="onGotUserInfo"> You need to Login</button>
   </block>
 </view>
