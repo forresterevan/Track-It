@@ -89,8 +89,11 @@
           "scene": null
         },
         {
-          "name": "pages/form/form",
-          "pathName": "pages/form/form",
+          "name": "companyIndex",
+          "pathName": "pages/companyIndex/companyIndex",
+          "name": "pages/employ/employ",
+          "pathName": "pages/employ/employ",
+          "query": "",
           "scene": null
         }
       ]
