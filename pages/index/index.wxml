@@ -1,14 +1,23 @@
 <view class="container">
-  <picker bindchange="bindPickerChange" value="{{jobs}}" range="{{jobsLocation}}">
-    <view class="picker">Filter{{Location[jobs]}}</view>
-    <view class="picker"> Currently selected: {{title[jobs]}}</view>
-  </picker>
+  <view class="header">
+    <view class="user-image">
+      <!-- <view wx:if="{{currentUser}}" class="profile"> -->
+        <image class="avatar" src="{{user.avatar}}"></image>
+        <!-- <view class="username">{{currentUser.nickname}}</view> -->
+    </view>
+    <picker bindchange="bindPickerChange" value="{{jobs}}" range="{{jobsLocation}}">
+      <view class="filter-bar">Filter{{Location[jobs]}}</view>
+      <!-- <view class="current-filter"> Currently selected: {{title[jobs]}}</view> -->
+    </picker> 
+  </view>
     
   <view wx:for="{{jobs}}" wx:for-item="job">
     <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
-      <image src="{{job.logo.path}}" class="img" mode="aspectFit"></image>
-      <view class="content">{{job.city}}. {{job.city}}: </view>
-      <view class="content">{{job.description}}</view>
+      <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
+      <view class="content">
+       <view class="city">{{job.city}}</view>
+       <view class="job-description">{{job.description}}</view>
+      </view>
     </view>
   </view>
 </view>

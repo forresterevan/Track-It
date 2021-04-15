@@ -7,7 +7,7 @@ App({
     wx.BaaS.init(clientID)
 
     wx.BaaS.auth.loginWithWechat().then(user => {
-      console.log(user)
+      // console.log(user)
     }, err => {
       console.log(err)
   })
