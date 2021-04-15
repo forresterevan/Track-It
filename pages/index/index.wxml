@@ -15,10 +15,9 @@
     <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
       <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
       <view class="content">
-       <view class="city">{{job.city}}</view>
-       <view class="job-description">{{job.description}}</view>
+        <view class="city">{{job.city}}</view>
+        <view class="job-description">{{job.description}}</view>
       </view>
-    </view>
     </view>
   </view>
 </view>
