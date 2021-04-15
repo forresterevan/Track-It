@@ -4,6 +4,7 @@ Page({
   },
   onLoad() {
     this.getJobs()
+    this.userInfoHandler()
   },
   getJobs: function() {
     let Jobs = new wx.BaaS.TableObject('jobs'); 
@@ -23,6 +24,17 @@ Page({
   navigateToShow: function(e) {
     wx.navigateTo({
       url: `/pages/show/show?id=${e.currentTarget.dataset.id}`,
+    })
+  },
+
+  userInfoHandler(data) {
+    wx.BaaS.auth.loginWithWechat(data).then(user => {
+        wx.setStorageSync('user', user)
+        this.setData({user})
+        // this.getMyJobs()
+        console.log(user.avatar)
+      }, err => {
+        console.log(err)
     })
   }
 })
