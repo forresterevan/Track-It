@@ -3,7 +3,6 @@ Page({
   data: {
   },
   onLoad: function () {
-    this.getUserLocation()
     this.checklogin()
   },
   userInfoHandler: function(data) {
@@ -14,8 +13,8 @@ Page({
         console.log(res)
         wx.BaaS.auth.updateUserInfo(res).then(user => {
           console.log(user)
-          this.navigateToIndex()
           wx.setStorageSync('user', user)
+          this.navigateToEmploy()
           }, err => {
             console.log(err)
         })
@@ -28,6 +27,7 @@ Page({
       this.setData({
         currentUser: user
       })
+      this.navigateToEmploy()
     }
     console.log(user)
   },
@@ -39,9 +39,9 @@ Page({
       }
     })
   },
-  navigateToIndex: function(e) {
-    wx.switchTab({
-      url: `/pages/index/index`,
+  navigateToEmploy: function(e) {
+    wx.navigateTo({
+      url: `/pages/employ/employ`,
     })
   }
 })

@@ -3,7 +3,7 @@
   <view class="name">{{job.company}}</view>
   <view>{{job.description}}</view>
   <view>{{job.city}}</view>
-  <view>{{job.employer_wechat_id}}</view>
+  <view bindtap="copyID">{{job.employer_wechat_id}}</view>
   <view>{{job.status}}</view>
   <view>{{job.salary_range}} rmb per sucessful Advertising</view>
   <image src="{{job.logo.path}}" class="img"></image>
