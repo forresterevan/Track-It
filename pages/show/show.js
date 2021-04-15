@@ -48,6 +48,20 @@ Page({
       }
     })
 },
+copyID: function() {
+  wx.setClipboardData({
+    data: this.data.job.employer_wechat_id,
+    success (res) {
+      console.log(res)
+      wx.showToast({
+        title: 'Copied',
+        icon: 'success',
+        duration: 1500
+      })
+      
+    }
+  })
+},
 onShow: function() {
   this.checkLikedJob();
 },

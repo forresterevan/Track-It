@@ -1,9 +1,12 @@
 {
   "pages":[
     "pages/landing/landing",
+    "pages/companyIndex/companyIndex",
     "pages/index/index",
     "pages/show/show",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/form/form"
+    "pages/employ/employ"
     
   ],
   "window":{

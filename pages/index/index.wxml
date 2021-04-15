@@ -19,5 +19,6 @@
        <view class="job-description">{{job.description}}</view>
       </view>
     </view>
+    </view>
   </view>
 </view>
