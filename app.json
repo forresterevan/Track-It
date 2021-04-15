@@ -4,13 +4,14 @@
     "pages/companyIndex/companyIndex",
     "pages/index/index",
     "pages/show/show",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/employ/employ"
     
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "TRACK-IT",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",

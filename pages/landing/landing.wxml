@@ -1,10 +1,8 @@
-<button open-type="getUserInfo" bindgetuserinfo="userInfoHandler" bindtap="navigateToIndex">微信 Login</button>
 
 <!-- user.wxml -->
 <view wx:if="{{currentUser}}">
   <text>Welcome back {{currentUser.nickName}}!</text>
 </view>
-
 <view wx:else>
-  <!-- login button -->
+  <button open-type="getUserInfo" bindtap="userInfoHandler">微信 Login</button>
 </view> 

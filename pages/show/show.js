@@ -2,7 +2,7 @@
 Page({
   data: {
     currentUser: null,
-    captured: false
+    fav: false
   },
   getJobs: function (id) {
     let Jobs = new wx.BaaS.TableObject('jobs')
@@ -21,8 +21,6 @@ Page({
     this.checklogin();
     this.setData({job_id: id})
     this.getJobs(id);
-    this.checkLikedJob();
-
   },
   saveToDatabase: function() {
     let favoriteJobs = new wx.BaaS.TableObject("favorite_jobs")
@@ -34,16 +32,38 @@ Page({
 },
  //log-in
  onGotUserInfo: function(data) {
+   let self = this
   console.log(data)
-  wx.BaaS.auth.loginWithWechat(data).then(user => {
-      wx.setStorageSync('user', user)
-      this.setData({
-        currentUser: user
+    wx.getUserProfile({
+      desc: '用于完善会员资料', 
+      success: (res) => {
+        console.log(res)
+        wx.BaaS.auth.updateUserInfo(res).then(user => {
+          console.log(user)
+          self.setData({currentUser: user})
+          wx.setStorageSync('user', user)
+          self.checkLikedJob();
+          }, err => {
+        })
+      }
+    })
+},
+copyID: function() {
+  wx.setClipboardData({
+    data: this.data.job.employer_wechat_id,
+    success (res) {
+      console.log(res)
+      wx.showToast({
+        title: 'Copied',
+        icon: 'success',
+        duration: 1500
       })
-      this.checkLikedJob()
-    }, err => {
-      console.log(err)
+      
+    }
   })
+},
+onShow: function() {
+  this.checkLikedJob();
 },
 checklogin: function () {
   let user = wx.getStorageSync('user')

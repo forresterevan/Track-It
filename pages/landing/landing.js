@@ -3,16 +3,33 @@ Page({
   data: {
   },
   onLoad: function () {
-    this.getUserLocation()
+    this.checklogin()
   },
   userInfoHandler: function(data) {
     console.log(data)
-    wx.BaaS.auth.loginWithWechat(data).then(user => {
-      console.log(user)
-        // do something with the 'user' object
-      }, err => {
-        // might need to log the error message
+    wx.getUserProfile({
+      desc: '用于完善会员资料', 
+      success: (res) => {
+        console.log(res)
+        wx.BaaS.auth.updateUserInfo(res).then(user => {
+          console.log(user)
+          wx.setStorageSync('user', user)
+          this.navigateToEmploy()
+          }, err => {
+            console.log(err)
+        })
+      }
     })
+  },
+  checklogin: function () {
+    let user = wx.getStorageSync('user')
+    if (user) {
+      this.setData({
+        currentUser: user
+      })
+      this.navigateToEmploy()
+    }
+    console.log(user)
   },
   getUserLocation: function () {
     wx.getLocation({
@@ -22,9 +39,9 @@ Page({
       }
     })
   },
-  navigateToIndex: function(e) {
-    wx.switchTab({
-      url: `/pages/index/index`,
+  navigateToEmploy: function(e) {
+    wx.navigateTo({
+      url: `/pages/employ/employ`,
     })
   }
 })
