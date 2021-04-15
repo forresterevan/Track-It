@@ -87,6 +87,11 @@
           "pathName": "pages/landing/landing",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/form/form",
+          "pathName": "pages/form/form",
+          "scene": null
         }
       ]
     }

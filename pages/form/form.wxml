@@ -1,0 +1,31 @@
+<!--pages/form/form.wxml-->
+<form  bindsubmit="formSubmit">
+  <view class="section">
+    <view class="section__title">Company</view>
+    <input name="company" placeholder="your company" />
+  </view>
+
+  <view class="section">
+    <view class="section__title">Title</view>
+    <input name="title" placeholder="your title" />
+  </view>
+
+  <view class="section">
+    <view class="section__title">City</view>
+    <input name="city" placeholder="your city" />
+  </view>
+
+  <view class="section">
+    <view class="section__title">Job Type</view>
+    <input name="job-type" placeholder="your job type" />
+  </view>
+
+  <view class="section">
+    <view class="section__title">Description</view>
+    <textarea name="description" placeholder="description" />
+  </view>
+
+  <button form-type="submit">submit</button>
+</form>>
+
+
