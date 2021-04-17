@@ -8,9 +8,9 @@ Page({
   onLoad: function (options) {
     let id = options.id
     this.setData({job_id: id})
-    
-    // this.checklogin();
-    // this.checkLikedJob();
+  
+    this.checklogin();
+    this.checkLikedJob();
     this.getJob(id);
   },
 
