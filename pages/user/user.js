@@ -1,20 +1,29 @@
 // pages/user/user.js
 Page({
   data: {
+    toggle: 'favorite'
   },
-  checkEmployer: function () {
-    let userRole = new wx.BaaS.TableObject("user_roles")
-    let query = new wx.BaaS.Query()
-    query.compare("user_id", "=", this.data.currentUser.id)
-    userRole.setQuery(query).find().then(res =>{
-      console.log(res)
-      let role = res.data.objects[0]
-      this.setData({is_employer: role.is_employer})
-    })
+
+  toggleTab: function (e) {
+    let type = e.currentTarget.dataset.type;
+    this.setData({toggle: type})
   },
-  toForm: function () {
-    wx.navigateTo({
-      url: '/pages/form/form',
+
+
+  userInfoHandler: function () {
+    wx.getUserProfile({
+      desc: '用于完善会员资料', 
+      success: (res) => {
+        console.log(res)
+        wx.BaaS.auth.updateUserInfo(res).then(user => {
+          console.log(user)
+          wx.setStorageSync('user', user)
+          this.setData({currentUser: user})
+          this.getMyJobs()
+          }, err => {
+            console.log(err)
+        })
+      }
     })
   },
   navigateToShow: function (e) {
@@ -22,21 +31,11 @@ Page({
       url: `/pages/show/show?id=${e.currentTarget.dataset.id}`,
     })
   },
-  userInfoHandler(data) {
-    wx.BaaS.auth.loginWithWechat(data).then(user => {
-        wx.setStorageSync('user', user)
-        this.setData({ currentUser: user })
-        this.getMyJobs()
-      }, err => {
-        console.log(err)
-    })
-  },
   onLoad: function (options) {
     let currentUser = wx.getStorageSync('user')
     if (currentUser) {
       this.setData({ currentUser: currentUser })
       this.getMyJobs()
-      this.checkEmployer()
     }
   },
   getMyJobs: function () {
