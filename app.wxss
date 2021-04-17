@@ -1,3 +1,33 @@
 .app-container {
   padding: 0 40rpx;
 }
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.subheader {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  background: #00AD59;
+}
+
+.btn-ghost {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #00AD59;
+  background: white;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,0.25);
+}

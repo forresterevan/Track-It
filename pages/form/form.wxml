@@ -1,38 +1,62 @@
-<!--pages/form/form.wxml-->
-<form  bindsubmit="formSubmit">
+<view class="app-container">
+  <view class="header">Post a Job</view>
+
+  <!-- Form -->
+  <form  bindsubmit="formSubmit">
   <view class="section">
-    <view class="section__title">Company</view>
-    <input name="company" placeholder="your company" />
+    <view class="subheader subheader">Company</view>
+    <input name="company" placeholder="Alibaba..." />
   </view>
 
   <view class="section">
-    <view class="section__title">Title</view>
-    <input name="title" placeholder="your title" />
+    <view class="subheader subheader">Company Logo</view>
+    <image wx:if="{{logo}}" src="{{logo.path}}" mode="aspectFill" class="img-logo" bindtap="uploadImage"/>
+    <view wx:if="{{loading}}" class="btn-ghost">Upload in Progress...</view>
+    <view wx:if="{{!logo && !loading}}" class="btn-ghost" bindtap="uploadImage">Upload Image</view>
   </view>
 
   <view class="section">
-    <view class="section__title">City</view>
-    <input name="city" placeholder="your city" />
+    <view class="subheader">Title</view>
+    <input name="title" placeholder="Product Manager..." />
   </view>
 
   <view class="section">
-    <view class="section__title">Job Type</view>
-    <input name="job-type" placeholder="your job type" />
+    <view class="subheader">Job Type</view>
+    <picker bindchange="changeType" value="{{type.values[type.index]}}" range="{{type.values}}">
+      <view class="picker">
+        {{type.values[type.index]}}
+      </view>
+    </picker> 
   </view>
 
   <view class="section">
-    <view class="section__title">Description</view>
-    <textarea name="description" placeholder="description" />
+    <view class="subheader">Salary Range (RMB)</view>
+    <picker bindchange="changeSalary" value="{{salary.values[salary.index]}}" range="{{salary.values}}">
+      <view class="picker">
+        {{salary.values[salary.index]}}
+      </view>
+    </picker> 
   </view>
 
-  <button form-type="submit">submit</button>
-</form>>
+  <view class="section">
+    <view class="subheader">Location</view>
+    <input bindtap="chooseLocation" name="location" value="{{address}}" placeholder="Choose your location..." />
+  </view>
+
+  <view class="section">
+    <view class="subheader">Description</view>
+    <textarea name="description" maxlength="500" placeholder="Write your description here..." />
+  </view>
+  <button class="btn-primary" style="margin: 40px 0" form-type="submit">Submit</button>
+</form>
+</view>
+
 
 <!-- PSEDUO CODE:
-1. Add salary range to DB
-2. Add salary range to form
+1. [x] Add salary range to DB
+2. [ ] Add salary range to form
 3. Job type should be 1 of 2 options: non-teaching, teaching;
 4. Make location a map picker; wx.searchLocation
 5. Make it look good!
- -->
+-->
 
