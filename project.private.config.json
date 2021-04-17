@@ -67,7 +67,7 @@
         {
           "name": "show",
           "pathName": "pages/show/show",
-          "query": "",
+          "query": "id=60758e0b12ea7c009ca2f290",
           "scene": null
         },
         {
@@ -103,6 +103,7 @@
         {
           "name": "pages/form/form",
           "pathName": "pages/form/form",
+          "query": "",
           "scene": null
         }
       ]

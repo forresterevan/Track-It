@@ -9,6 +9,7 @@
 
 
 <view class="app-container">
+  <!-- <image ></image> -->
   <view>Landing Page</view>
   <view>- Silent Login</view>
   <view>- Nice picture & description of the app (Keep it Short!)</view>
