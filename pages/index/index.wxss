@@ -6,7 +6,7 @@
   justify-content: space-between;
   padding: 20rpx 0;
   box-sizing: border-box;
-  font: Montserrat Thin 100;
+  font: Roboto Thin 100;
 } 
 .app-container {
   /* box-sizing: border-box; */
