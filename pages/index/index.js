@@ -27,6 +27,12 @@ Page({
     })
   },
 
+  navigateToPost: function () {
+    wx.navigateTo({
+      url: '/pages/form/form',
+    })
+  },
+
   userInfoHandler(data) {
     wx.BaaS.auth.loginWithWechat(data).then(user => {
         wx.setStorageSync('user', user)

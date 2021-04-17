@@ -1,14 +1,15 @@
 <view class="container">
-  <view class="header">
-    <view class="user-image">
+  <view class="header app-container">
+    <!-- <view class="user-image"> -->
       <!-- <view wx:if="{{currentUser}}" class="profile"> -->
-        <image class="avatar" src="{{user.avatar}}"></image>
+        <!-- <image class="avatar" src="{{user.avatar}}"></image> -->
         <!-- <view class="username">{{currentUser.nickname}}</view> -->
-    </view>
+    <!-- </view> -->
+    <button type="primary" bindtap="navigateToPost">Post a Job</button>
     <picker bindchange="bindPickerChange" value="{{jobs}}" range="{{jobsLocation}}">
       <view class="filter-bar">Filter{{Location[jobs]}}</view>
       <!-- <view class="current-filter"> Currently selected: {{title[jobs]}}</view> -->
-    </picker> 
+    </picker>
   </view>
     
   <view wx:for="{{jobs}}" wx:for-item="job">
@@ -21,3 +22,9 @@
     </view>
   </view>
 </view>
+
+<!-- PSEUDO CODE
+1. Filter: Add city, type, & salary;
+2. Job Card: Add type, location, and salary;
+3. -- Add a job button -- 
+-->

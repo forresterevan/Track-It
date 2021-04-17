@@ -97,6 +97,12 @@
         {
           "name": "pages/show/show",
           "pathName": "pages/companyIndex/companyIndex",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/form/form",
+          "pathName": "pages/form/form",
           "scene": null
         }
       ]
