@@ -3,7 +3,11 @@ Page({
   data: {
   },
   onLoad: function () {
-    this.checklogin()
+    setInterval(this.navigateToIndex, 2000);
   },
-  
+
+  navigateToIndex: function () {
+    wx.switchTab({ url: '/pages/index/index' })
+  }
+
 })
