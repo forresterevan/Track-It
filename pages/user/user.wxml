@@ -4,6 +4,7 @@
       <image class="avatar" src="{{currentUser.avatar}}"></image>
       <view class="username">{{currentUser.nickname}}</view>
   </view>
+  <button bindtap="toForm" wx:if="{{is_employer}}">Post a Job</button>
   <view wx:for="{{favoriteJobs}}" wx:for-item="jobs">
     <view class="card-white" bindtap="navigateToShow" data-id="{{jobs.job_id.id}}">
     <view class="card-text">  

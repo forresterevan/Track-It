@@ -2,6 +2,21 @@
 Page({
   data: {
   },
+  checkEmployer: function () {
+    let userRole = new wx.BaaS.TableObject("user_roles")
+    let query = new wx.BaaS.Query()
+    query.compare("user_id", "=", this.data.currentUser.id)
+    userRole.setQuery(query).find().then(res =>{
+      console.log(res)
+      let role = res.data.objects[0]
+      this.setData({is_employer: role.is_employer})
+    })
+  },
+  toForm: function () {
+    wx.navigateTo({
+      url: '/pages/form/form',
+    })
+  },
   navigateToShow: function (e) {
     wx.navigateTo({
       url: `/pages/show/show?id=${e.currentTarget.dataset.id}`,
@@ -21,6 +36,7 @@ Page({
     if (currentUser) {
       this.setData({ currentUser: currentUser })
       this.getMyJobs()
+      this.checkEmployer()
     }
   },
   getMyJobs: function () {
