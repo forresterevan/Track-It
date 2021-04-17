@@ -1,89 +1,95 @@
 // pages/form/form.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    salary: {
+      values: ["0 - 11,999", "12,000 - 17,999", "18,000 - 23,999", "24,000 - 29,999", "30,000 +"],
+      index: 0
+    },
+    type: {
+      values: ["Non Teaching", "Teaching"],
+      index: 0
+    },
+    loading: false
   },
 
-  formSubmit(e) {
-    console.log(e.detail.value)
-    let tableName = 'jobs'
-    let Jobs = new wx.BaaS.TableObject(tableName)
+  changeSalary: function (e) {
+    console.log(e)
+  },
+
+  changeType: function (e) {
+    let index = e.detail.value
+    this.setData({ 'type.index': index });
+  },
+
+  changeSalary: function (e) {
+    let index = e.detail.value;
+    this.setData({'salary.index': index})
+  },
+
+  uploadImage: function (e) {
+    wx.chooseImage({
+      success: (res) => {
+        let MyFile = new wx.BaaS.File()
+        let fileParams = {filePath: res.tempFilePaths[0]}
+        let metaData = {categoryName: 'SDK'}
+    
+        let uploadTask = MyFile.upload(fileParams, metaData);
+
+        uploadTask.onProgressUpdate(e => {
+          this.setData({loading: true})
+        });
+        
+        uploadTask.then(res => {
+          let data = res.data;
+          this.setData({
+            logo: data,
+            loading: false
+          });
+        })
+      }
+    })
+  },
+
+  formSubmit: function (e) {
+    let Jobs = new wx.BaaS.TableObject('jobs')
     let job = Jobs.create()
-    let jobinfo = {
+
+    let type = this.data.type;
+    let salary = this.data.salary;
+
+    let data = {
       company: e.detail.value.company,
       title: e.detail.value.title,
       city: e.detail.value.city,
-      job_type: e.detail.value.job_type,
+      job_type: type.values[type.index],
       description: e.detail.value.description,
+      salary_range: salary.values[salary.index],
+      location: this.data.address,
+      logo: this.data.logo.file
     }
     
-    job.set(jobinfo).save().then(res => {
-      // success
-      console.log(res)
-    }, err => {
-      //err 为 HError 对象
+    job.set(data).save().then(res => {
+      wx.showModal({
+        title: 'Submit Success!',
+        content: "Your job posting will be reviewed shortly! Please check your posting status on your User profile page for updates.",
+        showCancel: false,
+        success: (res) => {
+          if (res.confirm) wx.switchTab({ url: "/pages/user/user" })   
+        }
+      })
     })
-
-
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  chooseLocation: function () {
+    wx.chooseLocation({
+      success: (result) => {
+        this.setData({ address: result.address })
+      }
+    })
+  },
+
   onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
 
   }
 })

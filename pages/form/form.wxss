@@ -1,1 +1,47 @@
-/* pages/form/form.wxss */
+Page {
+  background: #FAFAFA;
+}
+
+.section {
+  margin: 16px 0;
+}
+
+input {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+radio-group {
+  margin: 16px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.picker {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 4px;
+  padding: 8px;
+}
+
+textarea {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.25);
+  border-radius: 4px;
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  width: 100% !important;
+  height: 48px;
+}
+
+.img-logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 4px;
+}
