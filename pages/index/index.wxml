@@ -8,6 +8,7 @@
     <view >{{jobsLocation[cityIndex]}}</view>
     <view >{{salaryRanges[salaryIndex]}}</view>
   </view>
+  
   <view wx:for="{{jobs}}" wx:for-item="job">
     <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
       <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
@@ -18,6 +19,7 @@
       </view>
     </view>
   </view>
+
   <view class="btn-container"> <button type="primary" bindtap="navigateToPost" class="post-btn">Post a Job</button>
   </view>
 </view>
