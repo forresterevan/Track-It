@@ -8,8 +8,10 @@
 </view> -->
 
 
-<view class="container">
-  <image src="/image/logo.png"></image>
-    <view>Welcome to Track-it</view> 
-    <view>A job search in china for expats and locals</view>
+<view class="landing-container">
+  <view class="landing-border">
+    <view class="landing-content" >Your go to resource for job hunting in China</view>
+    <image src="../../image/logo.png" mode="aspectFit" class="landing-logo"></image>
+  </view>
 </view>
+

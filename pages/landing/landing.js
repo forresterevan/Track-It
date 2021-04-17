@@ -1,13 +1,12 @@
 // pages/landing/landing.js
 Page({
-  data: {
-  },
+  data: {},
+  
   onLoad: function () {
-    setTimeout(this.navigateToIndex, 2000);
+    setTimeout(this.navigateToIndex, 3000);
   },
 
   navigateToIndex: function () {
     wx.switchTab({ url: '/pages/index/index' })
   }
-
 })
