@@ -1,12 +1,16 @@
 <!--pages/show/show.wxml-->
-<view class="background">
-  <view class="name">{{job.company}}</view>
-  <view>{{job.description}}</view>
-  <view>{{job.city}}</view>
-  <view bindtap="copyID">{{job.employer_wechat_id}}</view>
-  <view>{{job.status}}</view>
-  <view>{{job.salary_range}} rmb per sucessful Advertising</view>
-  <image src="{{job.logo.path}}" class="img"></image>
+<view class="job-card">
+  <view class="description-header">
+    <image src="{{job.logo.path}}" class="img"></image>
+    <view class="post-date">{{job.created_at}}</view>
+  </view>
+    <view class="title">{{job.title}}</view>
+    <view class="company">{{job.company}}</view>
+    <view class="city">{{job.city}}</view>
+    <view bindtap="copyID">{{job.employer_wechat_id}}</view>
+    <view>{{job.status}}</view>
+    <view>{{job.description}}</view>
+    <view>{{job.salary_range}} rmb per sucessful Advertising</view>
   <block wx:if="{{currentUser && fav}}">
     <button class="btn" bindtap='saveToDatabase' type='disabled'>Added to Favorite</button>
   </block>

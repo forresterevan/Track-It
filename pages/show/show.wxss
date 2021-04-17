@@ -1,1 +1,31 @@
 /* pages/show/show.wxss */
+.job-card {
+  padding: 32rpx;
+}
+
+.description-header {
+ box-sizing: border-box;
+ display: flex;
+ justify-content: space-between;
+}
+
+.img {
+  height: 300rpx;
+  width: 300rpx;
+}
+
+.post-date {
+
+}
+
+.company {
+
+}
+
+.title {
+
+}
+
+.city {
+
+}

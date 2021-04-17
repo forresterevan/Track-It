@@ -4,24 +4,33 @@ Page({
     currentUser: null,
     fav: false
   },
-  getJobs: function (id) {
-    let Jobs = new wx.BaaS.TableObject('jobs')
-    Jobs.get(id).then(res => {
-      console.log(res)
-      this.setData({
-        job: res.data
-      })
-    }, (err) => {
-      console.log(err)
-    })
-  },
- 
+  // Lifecycle Functions
   onLoad: function (options) {
     let id = options.id
-    this.checklogin();
     this.setData({job_id: id})
-    this.getJobs(id);
+    
+    // this.checklogin();
+    // this.checkLikedJob();
+    this.getJob(id);
   },
+
+  // Custom Functions
+  getJob: function (id) {
+    let Jobs = new wx.BaaS.TableObject('jobs')
+    Jobs.get(id).then(res => {
+      this.formatDate(res.data);
+    })
+  },
+
+  formatDate: function (job) {
+    let date = job.created_at * 1000;
+    let options = { day: 'numeric', month: 'short', year: 'numeric' }
+    date = new Date(date).toLocaleDateString('en-US', options);
+    job.created_at = date
+    
+    this.setData({ job });
+  },
+
   saveToDatabase: function() {
     let favoriteJobs = new wx.BaaS.TableObject("favorite_jobs")
     let fJ = favoriteJobs.create()
@@ -62,31 +71,27 @@ copyID: function() {
     }
   })
 },
-onShow: function() {
-  this.checkLikedJob();
-},
+
 checklogin: function () {
   let user = wx.getStorageSync('user')
   if (user) {
-    this.setData({
-      currentUser: user
-    })
+    this.setData({ currentUser: user })
     this.checkLikedJob()
-  }
-  console.log(user)
+  };
 },
+
 //check Job
-checkLikedJob: function() {
-  let user_id = this.data.currentUser.id
-  let job_id = this.data.job_id
-  let favoriteJob = new wx.BaaS.TableObject("favorite_jobs")
-  let query = new wx.BaaS.Query()
-  query.compare('user_id', '=', user_id)
-  query.compare('job_id', '=', job_id)
-  favoriteJob.setQuery(query).find().then(res => {
-    console.log(res)
-    let fav = res.data.objects.length > 0 
-    this.setData({favoriteJob: res.data.objects, fav: fav})
-  })
-}
+  checkLikedJob: function() {
+    let user_id = this.data.currentUser.id
+    let job_id = this.data.job_id
+    let favoriteJob = new wx.BaaS.TableObject("favorite_jobs")
+    let query = new wx.BaaS.Query()
+    query.compare('user_id', '=', user_id)
+    query.compare('job_id', '=', job_id)
+    favoriteJob.setQuery(query).find().then(res => {
+      console.log(res)
+      let fav = res.data.objects.length > 0 
+      this.setData({favoriteJob: res.data.objects, fav: fav})
+    })
+  }
 })
