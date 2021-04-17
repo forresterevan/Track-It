@@ -36,10 +36,12 @@ Page({
     if (currentUser) {
       this.setData({ currentUser: currentUser })
       this.getMyJobs()
+      // this.getPostedJobs()
     }
   },
   onShow: function () {
     this.getMyJobs()
+    // this.getPostedJobs()
   },
   getMyJobs: function () {
     let favoriteJobs= new wx.BaaS.TableObject('favorite_jobs')
@@ -50,5 +52,16 @@ Page({
         console.log(res)
         this.setData({favoriteJobs: res.data.objects})
       })
-  }
+  },
+  getPostedJobs: function () {
+    let postedJob = new wx.BaaS.TableObject('jobs')
+    let query = new wx.BaaS.Query()
+    let currentUserId = this.data.currentUser.id
+    query.compare('created_by', '=', currentUserId)
+    postedJob.setQuery(query).expand(['job_id']).find().then(res => {
+      console.log(res)
+      this.setData({postedJobs: res.data.objects})
+    })
+  },
+
 })
