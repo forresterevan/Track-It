@@ -3,7 +3,7 @@ Page({
   data: {
   },
   onLoad: function () {
-    setTimeout(this.navigateToIndex, 2000);
+    //setTimeout(this.navigateToIndex, 2000);
   },
 
   navigateToIndex: function () {
