@@ -1,23 +1,24 @@
 <view class="container">
   <view class="header app-container">
-    <!-- <view class="user-image"> -->
-      <!-- <view wx:if="{{currentUser}}" class="profile"> -->
-        <!-- <image class="avatar" src="{{user.avatar}}"></image> -->
-        <!-- <view class="username">{{currentUser.nickname}}</view> -->
-    <!-- </view> -->
-    <button type="primary" bindtap="navigateToPost">Post a Job</button>
-    <picker bindchange="bindPickerChange" value="{{jobs}}" range="{{jobsLocation}}">
-      <view class="filter-bar">Filter{{Location[jobs]}}</view>
-      <!-- <view class="current-filter"> Currently selected: {{title[jobs]}}</view> -->
-    </picker>
+    <picker bindchange="bindCityChange" value="{{cityIndex}}" range="{{jobsLocation}}">City</picker>
+    <picker bindchange="bindSalaryChange" value="{{salaryIndex}}" range="{{salaryRanges}}">Salary Range</picker>
+    <switch bindchange="jobTypeChange"/>
   </view>
-    
+
+  <view class="header app-container">
+    <view class="filter-bar">city:{{jobsLocation[cityIndex]}}</view>
+    <view class="filter-bar">salary range:{{salaryRanges[salaryIndex]}}</view>
+  </view>
+  <button type="primary" bindtap="navigateToPost">Post a Job</button>
+
   <view wx:for="{{jobs}}" wx:for-item="job">
     <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
       <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
       <view class="content">
+        <view class="title">{{job.title}}</view>
+        <view class="company">{{job.company}}</view>
         <view class="city">{{job.city}}</view>
-        <view class="job-description">{{job.description}}</view>
+        <view class="type">{{job.type}}</view>
       </view>
     </view>
   </view>
