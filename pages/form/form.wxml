@@ -28,4 +28,11 @@
   <button form-type="submit">submit</button>
 </form>>
 
+<!-- PSEDUO CODE:
+1. Add salary range to DB
+2. Add salary range to form
+3. Job type should be 1 of 2 options: non-teaching, teaching;
+4. Make location a map picker; wx.searchLocation
+5. Make it look good!
+ -->
 

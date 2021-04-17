@@ -1,8 +1,16 @@
 
 <!-- user.wxml -->
-<view wx:if="{{currentUser}}">
+<!-- <view wx:if="{{currentUser}}">
   <text>Welcome back {{currentUser.nickName}}!</text>
 </view>
 <view wx:else>
   <button open-type="getUserInfo" bindtap="userInfoHandler">微信 Login</button>
-</view> 
+</view> -->
+
+
+<view class="app-container">
+  <view>Landing Page</view>
+  <view>- Silent Login</view>
+  <view>- Nice picture & description of the app (Keep it Short!)</view>
+  <view>- Automatic navigation to index (2s)</view>
+</view>
