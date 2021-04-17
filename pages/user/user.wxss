@@ -21,7 +21,30 @@
   max-height: 100px;
 }
 .username {
-  margin-left: 24px;
   font-size: 28px;
-  margin-top: 20px;
+  height: 100px; 
+  display: flex;
+  align-items: center;
+  margin-left: 16px;
+}
+.card-white {
+  background: #fafafa;
+  border-radius: 4px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 6px;
+  box-sizing: border-box;
+  margin: 5px 8px;
+  margin-top: 15px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  width: 650rpx;
+}
+.logo {
+  min-height: 64px;
+  min-width: 64px;
+  max-height: 64px;
+  max-width: 64px;
+  border-radius: 4px;
+  padding: 10px;
+  flex-shrink: 0;
 }

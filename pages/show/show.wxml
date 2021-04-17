@@ -1,8 +1,11 @@
 <!--pages/show/show.wxml-->
 <view class="app-container">
   <view class="description-header">
-    <image src="{{job.logo.path}}" mode="aspectFill" class="img"></image>
-    <view class="post-date">{{job.created_at}}</view>
+    <image src="{{job.logo.path}}" mode="aspectFill" class="img-logo"></image>
+    <view style="text-align: right;">
+      <view class="post-date">{{job.created_at}}</view>
+      <view class="salary">{{job.salary_range}} RMB</view>
+    </view>
   </view>
 
   <view class="section-container">
@@ -10,25 +13,26 @@
     <view class="company">{{job.company}}</view>
     <view class="city">{{job.city}}</view>
 
-    <button wx:if="{{currentUser && fav}}" class="btn" bindtap='saveToDatabase' type='disabled'>Added to Favorite</button>
+    <button wx:if="{{currentUser && favorite}}" class="btn-ghost" bindtap='removeFavorite' type='disabled'>Remove from Favorites</button>
 
-    <button wx:elif="{{currentUser && !fav}}" class="btn" bindtap='saveToDatabase' type='primary'>Favorite</button>
+    <button wx:elif="{{currentUser && !favorite}}" class="btn-primary" bindtap='saveFavorite' type='primary'>Favorite</button>
 
-    <button wx:elif="{{canIUse && GetUserProfile}}" bindtap="onGotUserInfo"> You need to Login</button>
+    <button wx:elif="{{canIUse && GetUserProfile}}" class="btn-ghost" bindtap="onGotUserInfo"> You need to Login</button>
+  </view>
+
+  <!-- <view class="spacing"></view> -->
+
+  <view class="section-container flex">
+    <image src="{{job.created_by.avatar}}" class="img-avatar"/>
+    <view class="name-avatar" bindtap="copyID">{{job.created_by.nickname}}</view>
   </view>
 
   <!-- <view class="spacing"></view> -->
 
   <view class="section-container">
-    <image src="{{job.created_by.avatar}}" class="post-avatar"/>
-    <view class="contact" bindtap="copyID">{{job.employer_wechat_id}}</view>
-  </view>
-
-  <!-- <view class="spacing"></view> -->
-
-  <view class="section-container">
+    <view class="subheader">Job Description</view>
     <view class="description">{{job.description}}</view>
-    <view class="salary">{{job.salary_range}} rmb per sucessful Advertising</view>
+    <!-- <view class="salary">{{job.salary_range}} rmb per sucessful Advertising</view> -->
   </view>
 </view>
 

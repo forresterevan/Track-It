@@ -18,16 +18,21 @@
   <!-- Card Container -->
 
   <view wx:if="{{toggle === 'favorite'}}" wx:for="{{favoriteJobs}}" wx:for-item="jobs">
-    <view class="card-white" bindtap="navigateToShow" data-id="{{jobs.job_id.id}}">
-      <view class="card-text">  
-        <view class="content2">{{jobs.job_id.title}}</view>
-        <view class="content2">{{jobs.job_id.description}}</view>
-      </view>
+      <view class="card-white" bindtap="navigateToShow" data-id="{{jobs.job_id.id}}">
+      <image src="{{jobs.job_id.logo.path}}" class="logo" mode="aspectFit"></image>
+      <view class="content">
+        <view class="title">{{jobs.job_id.title}}</view>
+        <view class="company">{{jobs.job_id.company}}</view>
+        <view class="city">{{jobs.job_id.city}}</view>
+        <view class="type">{{jobs.job_id.type}}</view>
+    </view>
     </view>
   </view>
 
   <view wx:if="{{toggle === 'post'}}">
-    Posts
+    <block wx:if="noPost">
+    <view>No Posts</view>
+    </block>
   </view>
 
 

@@ -28,8 +28,9 @@ Page({
   jobTypeChange: function (e) {
     console.log(e)
     let chosenJobType = e.detail.value
-    let fliteredJobs = this.data.originalJobs.filter(job => job.job_type == chosenJobType)
-    this.setData({chosenJobType: chosenJobType, jobs: fliteredJobs}) 
+    let jobType = chosenJobType ? 'Teaching' : 'Non-Teaching'
+    let filteredJobs = this.data.originalJobs.filter(job => job.job_type == jobType)
+    this.setData({chosenJobType: chosenJobType, jobs: filteredJobs}) 
   },
   filterJobsLocally: function() {
   },
@@ -63,6 +64,7 @@ Page({
   bindSalaryChange: function (e) {
     console.log(e)
     let salaryIndex = e.detail.value
-    this.setData({salaryIndex: salaryIndex})
+    let fliteredJobs = this.data.originalJobs.filter(job => job.salary_range == this.data.salaryRanges[salaryIndex])
+    this.setData({salaryIndex: salaryIndex, jobs: fliteredJobs})
   },
 })

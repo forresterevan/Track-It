@@ -7,10 +7,8 @@ Page({
   // Lifecycle Functions
   onLoad: function (options) {
     let id = options.id
-    this.setData({job_id: id})
-    
+    // this.setData({job_id: id})
     this.checklogin();
-    this.checkLikedJob();
     this.getJob(id);
   },
 
@@ -20,6 +18,7 @@ Page({
     Jobs.expand(['created_by']).get(id).then(res => {
       console.log(res.data);
       this.formatDate(res.data);
+      this.getFavorites(res.data.id);
     })
   },
 
@@ -32,18 +31,30 @@ Page({
     this.setData({ job });
   },
 
-  saveToDatabase: function() {
-    let favoriteJobs = new wx.BaaS.TableObject("favorite_jobs")
-    let fJ = favoriteJobs.create()
-    fJ.set({user_id: this.data.currentUser.id, job_id: this.data.job.id}).save().then(res => {
-      console.log(res)
-      this.setData({fav: true})
+  saveFavorite: function() {
+    let Favorites = new wx.BaaS.TableObject("favorite_jobs")
+    let favorite = Favorites.create();
+    let data = {
+      user_id: this.data.currentUser.id, 
+      job_id: this.data.job.id
+    }
+
+    favorite.set(data).save().then(res => {
+      this.setData({ favorite: res.data });
     })
-},
+  },
+
+  removeFavorite: function () {
+    let Favorites = new wx.BaaS.TableObject("favorite_jobs");
+    Favorites.delete(this.data.favorite.id).then(res => {
+      this.setData({favorite: null})
+    })
+  },
+
  //log-in
- onGotUserInfo: function(data) {
-   let self = this
-  console.log(data)
+  onGotUserInfo: function(data) {
+    let self = this
+    console.log(data)
     wx.getUserProfile({
       desc: '用于完善会员资料', 
       success: (res) => {
@@ -52,46 +63,44 @@ Page({
           console.log(user)
           self.setData({currentUser: user})
           wx.setStorageSync('user', user)
-          self.checkLikedJob();
+          self.getFavorites();
           }, err => {
         })
       }
     })
-},
-copyID: function() {
-  wx.setClipboardData({
-    data: this.data.job.employer_wechat_id,
-    success (res) {
-      console.log(res)
-      wx.showToast({
-        title: 'Copied',
-        icon: 'success',
-        duration: 1500
-      }) 
-    }
-  })
-},
+  },
 
-checklogin: function () {
-  let user = wx.getStorageSync('user')
-  if (user) {
-    this.setData({ currentUser: user })
-    this.checkLikedJob()
-  };
-},
+  copyID: function() {
+    wx.setClipboardData({
+      data: this.data.job.employer_wechat_id,
+      success (res) {
+        console.log(res)
+        wx.showToast({
+          title: 'Copied',
+          icon: 'success',
+          duration: 1500
+        }) 
+      }
+    })
+  },
 
-//check Job
-  checkLikedJob: function() {
+  checklogin: function () {
+    let user = wx.getStorageSync('user')
+    if (user) {
+      this.setData({ currentUser: user })
+    };
+  },
+
+  //check Job
+  getFavorites: function() {
     let user_id = this.data.currentUser.id
-    let job_id = this.data.job_id
-    let favoriteJob = new wx.BaaS.TableObject("favorite_jobs")
+    let job_id = this.data.job.id
+    let Favorites = new wx.BaaS.TableObject("favorite_jobs")
     let query = new wx.BaaS.Query()
     query.compare('user_id', '=', user_id)
     query.compare('job_id', '=', job_id)
-    favoriteJob.setQuery(query).find().then(res => {
-      console.log(res)
-      let fav = res.data.objects.length > 0 
-      this.setData({favoriteJob: res.data.objects, fav: fav})
+    Favorites.setQuery(query).find().then(res => {
+      this.setData({favorite: res.data.objects[0]})
     })
   }
 })

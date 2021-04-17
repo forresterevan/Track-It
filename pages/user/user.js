@@ -38,6 +38,9 @@ Page({
       this.getMyJobs()
     }
   },
+  onShow: function () {
+    this.getMyJobs()
+  },
   getMyJobs: function () {
     let favoriteJobs= new wx.BaaS.TableObject('favorite_jobs')
       let query = new wx.BaaS.Query()
