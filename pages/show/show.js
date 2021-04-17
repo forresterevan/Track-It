@@ -9,15 +9,16 @@ Page({
     let id = options.id
     this.setData({job_id: id})
     
-    // this.checklogin();
-    // this.checkLikedJob();
+    this.checklogin();
+    this.checkLikedJob();
     this.getJob(id);
   },
 
   // Custom Functions
   getJob: function (id) {
     let Jobs = new wx.BaaS.TableObject('jobs')
-    Jobs.get(id).then(res => {
+    Jobs.expand(['created_by']).get(id).then(res => {
+      console.log(res.data);
       this.formatDate(res.data);
     })
   },
@@ -66,8 +67,7 @@ copyID: function() {
         title: 'Copied',
         icon: 'success',
         duration: 1500
-      })
-      
+      }) 
     }
   })
 },

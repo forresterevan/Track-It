@@ -1,25 +1,35 @@
 <!--pages/show/show.wxml-->
-<view class="job-card">
+<view class="app-container">
   <view class="description-header">
-    <image src="{{job.logo.path}}" class="img"></image>
+    <image src="{{job.logo.path}}" mode="aspectFill" class="img"></image>
     <view class="post-date">{{job.created_at}}</view>
   </view>
+
+  <view class="section-container">
     <view class="title">{{job.title}}</view>
     <view class="company">{{job.company}}</view>
     <view class="city">{{job.city}}</view>
-    <view bindtap="copyID">{{job.employer_wechat_id}}</view>
-    <view>{{job.status}}</view>
-    <view>{{job.description}}</view>
-    <view>{{job.salary_range}} rmb per sucessful Advertising</view>
-  <block wx:if="{{currentUser && fav}}">
-    <button class="btn" bindtap='saveToDatabase' type='disabled'>Added to Favorite</button>
-  </block>
-  <block wx:elif="{{currentUser && !fav}}">
-    <button class="btn" bindtap='saveToDatabase' type='primary'>Favorite</button>
-  </block>   
-  <block wx:else>
-    <button wx:if="{{canIUseGetUserProfile}}" bindtap="onGotUserInfo"> You need to Login</button>
-  </block>
+
+    <button wx:if="{{currentUser && fav}}" class="btn" bindtap='saveToDatabase' type='disabled'>Added to Favorite</button>
+
+    <button wx:elif="{{currentUser && !fav}}" class="btn" bindtap='saveToDatabase' type='primary'>Favorite</button>
+
+    <button wx:elif="{{canIUse && GetUserProfile}}" bindtap="onGotUserInfo"> You need to Login</button>
+  </view>
+
+  <!-- <view class="spacing"></view> -->
+
+  <view class="section-container">
+    <image src="{{job.created_by.avatar}}" class="post-avatar"/>
+    <view class="contact" bindtap="copyID">{{job.employer_wechat_id}}</view>
+  </view>
+
+  <!-- <view class="spacing"></view> -->
+
+  <view class="section-container">
+    <view class="description">{{job.description}}</view>
+    <view class="salary">{{job.salary_range}} rmb per sucessful Advertising</view>
+  </view>
 </view>
 
 <!-- PSEDUO CODE: 
