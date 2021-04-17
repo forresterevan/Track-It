@@ -17,29 +17,24 @@ Page({
   getUniqFields: function(jobs){
     let cities = jobs.map( job => job.city)
     let ranges = jobs.map( job => job.salary_range)
+    let types = jobs.map( job => job.job_type)
     let cityObj = {}
     let rangeObj = {}
+    let typeObj = {}
     cities.forEach(city => cityObj[city] = city)
     ranges.forEach(range => rangeObj[range] = range)
+    types.forEach(type => typeObj[type] = type)
     let uniqCities = Object.keys(cityObj)
     let uniqRanges = Object.keys(rangeObj)
-    this.setData({jobsLocation: uniqCities, salaryRanges: uniqRanges})
+    let uniqTypes = Object.keys(typeObj)
+    this.setData({jobsLocation: uniqCities, salaryRanges: uniqRanges, jobTypes: uniqTypes})
   },
-  jobTypeChange: function (e) {
-    console.log(e)
-    let chosenJobType = e.detail.value
-    let jobType = chosenJobType ? 'Teaching' : 'Non-Teaching'
-    let filteredJobs = this.data.originalJobs.filter(job => job.job_type == jobType)
-    this.setData({chosenJobType: chosenJobType, jobs: filteredJobs}) 
-  },
-  filterJobsLocally: function() {
-  },
+
   navigateToShow: function(e) {
     wx.navigateTo({
       url: `/pages/show/show?id=${e.currentTarget.dataset.id}`,
     })
   },
-
   navigateToPost: function () {
     wx.navigateTo({
       url: '/pages/form/form',
@@ -58,13 +53,19 @@ Page({
   bindCityChange: function (e) {
     console.log(e)
     let cityIndex = e.detail.value
-    let fliteredJobs = this.data.originalJobs.filter(job => job.city == this.data.jobsLocation[cityIndex])
-    this.setData({cityIndex: cityIndex, jobs: fliteredJobs})
+    let filteredJobs = this.data.originalJobs.filter(job => job.city == this.data.jobsLocation[cityIndex])
+    this.setData({cityIndex: cityIndex, jobs: filteredJobs})
+  },
+  bindTypeChange: function (e) {
+    console.log(e)
+    let typeIndex = e.detail.value
+    let filteredJobs = this.data.originalJobs.filter(job => job.job_type == this.data.jobTypes[typeIndex])
+    this.setData({typeIndex: typeIndex, jobs: filteredJobs})
   },
   bindSalaryChange: function (e) {
     console.log(e)
     let salaryIndex = e.detail.value
-    let fliteredJobs = this.data.originalJobs.filter(job => job.salary_range == this.data.salaryRanges[salaryIndex])
-    this.setData({salaryIndex: salaryIndex, jobs: fliteredJobs})
+    let filteredJobs = this.data.originalJobs.filter(job => job.salary_range == this.data.salaryRanges[salaryIndex])
+    this.setData({salaryIndex: salaryIndex, jobs: filteredJobs})
   },
 })

@@ -2,7 +2,8 @@
   <view class="header app-container">
     <picker class="picker" bindchange="bindCityChange" value="{{cityIndex}}" range="{{jobsLocation}}">City</picker>
     <picker class="picker" bindchange="bindSalaryChange" value="{{salaryIndex}}" range="{{salaryRanges}}">Salary</picker>
-    <view><switch bindchange="jobTypeChange" color="#00AD59" /><text class="picker">Teaching</text></view>
+    <picker class="picker" bindchange="bindTypeChange" value="{{typeIndex}}" range="{{jobTypes}}"> Job Type</picker>
+    <!-- <view><switch bindchange="jobTypeChange" color="#00AD59" /><text class="switch-btn">Teaching</text></view> -->
   </view>
   <view class="app-container">
     <view >{{jobsLocation[cityIndex]}}</view>
