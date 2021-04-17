@@ -1,18 +1,36 @@
 <!--pages/user/user.wxml-->
-<view class="container">
+<view class="app-container">
+  <!--INFO-->
   <view wx:if="{{currentUser}}" class="profile">
       <image class="avatar" src="{{currentUser.avatar}}"></image>
       <view class="username">{{currentUser.nickname}}</view>
   </view>
-  <button bindtap="toForm" wx:if="{{is_employer}}">Post a Job</button>
-  <view wx:for="{{favoriteJobs}}" wx:for-item="jobs">
+  
+  <!-- Login Button -->
+  <button bindtap="userInfoHandler" type="primary" wx:if="{{!currentUser}}" >Log-in</button>
+  
+  <!-- Tab Bar -->
+  <view class="container-tabs">
+    <view class="tab {{toggle === 'favorite' ? 'tab-active' : ''}}" bindtap="toggleTab" data-type="favorite">Favorite</view>
+    <view class="tab {{toggle === 'post' ? 'tab-active' : ''}}" bindtap="toggleTab" data-type="post">Posts</view>
+  </view>
+
+  <!-- Card Container -->
+
+  <view wx:if="{{toggle === 'favorite'}}" wx:for="{{favoriteJobs}}" wx:for-item="jobs">
     <view class="card-white" bindtap="navigateToShow" data-id="{{jobs.job_id.id}}">
-    <view class="card-text">  
-      <view class="content2">{{jobs.job_id.title}}</view>
-      <view class="content2">{{jobs.job_id.description}}</view>
+      <view class="card-text">  
+        <view class="content2">{{jobs.job_id.title}}</view>
+        <view class="content2">{{jobs.job_id.description}}</view>
+      </view>
     </view>
   </view>
+
+  <view wx:if="{{toggle === 'post'}}">
+    Posts
   </view>
+
+
 </view>
 
 <!-- 

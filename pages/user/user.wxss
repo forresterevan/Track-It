@@ -1,1 +1,27 @@
 /* pages/user/user.wxss */
+.container-tabs {
+  display: flex;
+  justify-content: space-around;
+  margin: 40rpx 0;
+}
+
+.tab-active {
+  color: green;
+}
+
+.profile {
+  display: flex;
+  align-content: center;
+}
+.avatar {
+  border-radius: 5px 5px 0 0;
+  min-width: 100px;
+  max-width: 100px;
+  min-height: 100px;
+  max-height: 100px;
+}
+.username {
+  margin-left: 24px;
+  font-size: 28px;
+  margin-top: 20px;
+}
