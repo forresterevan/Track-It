@@ -89,11 +89,14 @@
           "scene": null
         },
         {
-          "name": "companyIndex",
-          "pathName": "pages/companyIndex/companyIndex",
           "name": "pages/employ/employ",
           "pathName": "pages/employ/employ",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/show/show",
+          "pathName": "pages/companyIndex/companyIndex",
           "scene": null
         }
       ]
