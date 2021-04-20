@@ -7,8 +7,8 @@ App({
     wx.BaaS.init(clientID)
 
     wx.BaaS.auth.loginWithWechat().then(user => {
-      console.log(user)
-      this.globalData.currentUser = user
+      wx.setStorageSync('user', user);
+      // this.globalData.currentUser = user
     }, err => {
       console.log(err)
     })

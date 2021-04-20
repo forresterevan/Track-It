@@ -1,3 +1,0 @@
-<!--pages/employ/employ.wxml-->
-<button bindtap="employee">I want to look for Jobs</button>
-<button bindtap="employer">I want to post Jobs</button>

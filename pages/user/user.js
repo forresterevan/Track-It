@@ -36,12 +36,12 @@ Page({
     if (currentUser) {
       this.setData({ currentUser: currentUser })
       this.getMyJobs()
-      // this.getPostedJobs()
+      this.getPostedJobs()
     }
   },
   onShow: function () {
     this.getMyJobs()
-    // this.getPostedJobs()
+    this.getPostedJobs()
   },
   getMyJobs: function () {
     let favoriteJobs= new wx.BaaS.TableObject('favorite_jobs')
