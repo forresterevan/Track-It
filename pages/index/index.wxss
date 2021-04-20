@@ -57,17 +57,19 @@
 
 .filter-active {
   background-color: #00AD59 !important;
+  color: white !important;
 }
 
 .picker {
-  margin: 0 16px;
+  margin: 0 8px;
   padding: 8px;
   box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
   flex-grow: 1;
-  color: white;
-  background-color: #adffd7;
+  flex-shrink: 0;
+  color: #00AD59;
+  border: 1px solid #00AD59;
 }
 
 .post-btn {

@@ -15,9 +15,8 @@ Page({
     }
   },
 
-  onLoad() {
+  onShow() {
     this.getJobs()
-    this.userInfoHandler()
   },
 
   getJobs: function() {
