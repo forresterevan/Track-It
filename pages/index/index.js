@@ -83,4 +83,12 @@ Page({
     })
     this.setData({salaryIndex: salaryIndex, jobs: filteredJobs})
   },
+
+  onShareAppMessage: function() {
+    return {
+      title: 'Track-It',
+      path: '/pages/index',
+      imageUrl: 'https://cloud-minapp-39669.cloud.ifanrusercontent.com/1lYpfMSFFVk42U1L.png'
+    }
+  } 
 })
