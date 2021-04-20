@@ -8,12 +8,10 @@
 .tab-active {
   color: green;
 }
-
 .profile {
   display: flex;
   align-items: center;
 }
-
 .avatar {
   border-radius: 5px 5px 0 0;
   min-width: 100px;
