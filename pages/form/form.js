@@ -10,7 +10,8 @@ Page({
       values: ["Non Teaching", "Teaching"],
       index: 0
     },
-    loading: false
+    loading: false,
+    // logo: {file: ''}
   },
 
   changeSalary: function (e) {
@@ -62,6 +63,10 @@ Page({
       company: e.detail.value.company,
       title: e.detail.value.title,
       city: e.detail.value.city,
+      contact_name: e.detail.value.contact_name,
+      contact_number: e.detail.value.contact_number,
+      contact_email: e.detail.value.contact_email,
+      contact_wechat: e.detail.value.contact_wechat,
       job_type: type.values[type.index],
       description: e.detail.value.description,
       salary_range: salary.values[salary.index],

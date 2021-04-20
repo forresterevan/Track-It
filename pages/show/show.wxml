@@ -23,10 +23,14 @@
   <!-- <view class="spacing"></view> -->
 
   <view class="section-container flex">
-    <image src="{{job.created_by.avatar}}" class="img-avatar"/>
-    <view class="name-avatar" bindtap="copyID">{{job.created_by.nickname}}</view>
+    <view class="contact-name">{{job.contact_name}}</view>
+    <view class="icons">
+      <image src="/image/phone.png" wx:if="{{job.contact_number}}" class="contact-icon" data-text="{{job.contact_number}}" bindtap="copyID"></image>
+      <image src="/image/email.png" wx:if="{{job.contact_email}}" class="contact-icon" data-text="{{job.contact_email}}" bindtap="copyID"></image>
+      <image src="/image/wechat.png" wx:if="{{job.contact_wechat}}" class="contact-icon" data-text="{{job.contact_wechat}}" bindtap="copyID"></image>
+    </view>
+    
   </view>
-
   <!-- <view class="spacing"></view> -->
 
   <view class="section-container">
