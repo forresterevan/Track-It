@@ -32,6 +32,10 @@
         "text": "Jobs"
       },
       {
+        "pagePath": "pages/form/form",
+        "text": "Post"
+      },
+      {
         "pagePath": "pages/user/user",
         "text": "User"
       }
