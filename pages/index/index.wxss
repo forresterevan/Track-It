@@ -22,14 +22,7 @@
   font-weight: 500;
   color: white;
 }
-.picker {
-  padding: 6px;
-  background-color: #00AD59;
-  border-radius: 6px;
-  max-width: 18%;
-  min-width: 18%;
-  text-align: center;
-}
+
 .switch-btn {
   background-color: #00AD59;
 }
@@ -62,31 +55,30 @@
   font-size: 16px;
 }
 
+.filter-active {
+  background-color: #00AD59 !important;
+  color: white !important;
+}
 
-
-
-
-
-
-
-
-
-/* .filter-bar {
-  background: #fafafa;
-  border-radius: 10px;
-  font-weight: bold;
+.picker {
+  margin: 0 8px;
+  padding: 8px;
   box-sizing: border-box;
-  width: 250px;
-  padding: 10rpx 0;
-  margin: 4px;
+  border-radius: 4px;
   text-align: center;
-} */
+  flex-grow: 1;
+  flex-shrink: 0;
+  color: #00AD59;
+  border: 1px solid #00AD59;
+}
+
 .post-btn {
   position: fixed;
   bottom: 8px;
   left: 50%;
   transform: translate(-50%);
 }
+
 .current-filter {
   background: #fafafa;
   border-radius: 10px;

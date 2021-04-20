@@ -1,15 +1,13 @@
 <view class="container">
   <view class="header app-container">
-    <picker class="picker" bindchange="bindCityChange" value="{{cityIndex}}" range="{{jobsLocation}}">City</picker>
-    <picker class="picker" bindchange="bindSalaryChange" value="{{salaryIndex}}" range="{{salaryRanges}}">Salary</picker>
-    <picker class="picker" bindchange="bindTypeChange" value="{{typeIndex}}" range="{{jobTypes}}"> Type</picker>
+    <picker class="picker {{city.index != 0 ? 'filter-active' : ''}}" data-type="city" bindchange="changeFilter" value="{{city.index}}" range="{{city.options}}">{{city.index === 0 ? 'City' : city.options[city.index]}}</picker>
+    
+    <picker class="picker {{salary.index != 0 ? 'filter-active' : ''}}" data-type="city" bindchange="changeFilter" value="{{salary.index}}" data-type="salary" range="{{salary.options}}">{{salary.index === 0 ? 'Salary' : salary.options[salary.index]}}</picker>
+    
+    <picker class="picker {{type.index != 0 ? 'filter-active' : ''}}" data-type="type" bindchange="changeFilter" value="{{type.index}}" range="{{type.options}}">{{type.index === 0 ? 'Type' : type.options[type.index]}}</picker>
   </view>
-  <!-- <view class="app-container">
-    <view >{{jobsLocation[cityIndex]}}</view>
-    <view >{{salaryRanges[salaryIndex]}}</view>
-  </view> -->
   
-  <view wx:for="{{jobs}}" wx:for-item="job" wx:key>
+  <view wx:for="{{jobs}}" wx:for-item="job" wx:key="id">
     <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
       <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
       <view class="content">
@@ -22,9 +20,3 @@
     </view>
   </view>
 </view>
-
-<!-- PSEUDO CODE
-1. Filter: Add city, type, & salary;
-2. Job Card: Add type, location, and salary;
-3. -- Add a job button -- 
--->
