@@ -25,14 +25,20 @@
         <view class="company">{{jobs.job_id.company}}</view>
         <view class="city">{{jobs.job_id.city}}</view>
         <view class="type">{{jobs.job_id.type}}</view>
-    </view>
+      </view>
     </view>
   </view>
 
-  <view wx:if="{{toggle === 'post'}}">
-    <block wx:if="noPost">
-    <view>No Posts</view>
-    </block>
+  <view wx:if="{{toggle === 'post'}}" wx:for="{{postedJobs}}" wx:for-item="job">
+    <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
+      <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
+      <view class="content">
+        <view class="title">{{job.title}}</view>
+        <view class="company">{{job.company}}</view>
+        <view class="city">{{job.city}}</view>
+        <view class="type">{{job.type}}</view>
+      </view>
+    </view>  
   </view>
 
 
