@@ -38,6 +38,7 @@
         <view class="company">{{job.company}}</view>
         <view class="city">{{job.city}}</view>
         <view class="type">{{job.type}}</view>
+        <view class="progress">{{job.status}}</view>
       </view>
     </view>  
   </view>
