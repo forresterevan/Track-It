@@ -26,6 +26,9 @@
   padding: 6px;
   background-color: #00AD59;
   border-radius: 6px;
+  max-width: 18%;
+  min-width: 18%;
+  text-align: center;
 }
 .switch-btn {
   background-color: #00AD59;

@@ -2,26 +2,24 @@
   <view class="header app-container">
     <picker class="picker" bindchange="bindCityChange" value="{{cityIndex}}" range="{{jobsLocation}}">City</picker>
     <picker class="picker" bindchange="bindSalaryChange" value="{{salaryIndex}}" range="{{salaryRanges}}">Salary</picker>
-    <picker class="picker" bindchange="bindTypeChange" value="{{typeIndex}}" range="{{jobTypes}}"> Job Type</picker>
-    <!-- <view><switch bindchange="jobTypeChange" color="#00AD59" /><text class="switch-btn">Teaching</text></view> -->
+    <picker class="picker" bindchange="bindTypeChange" value="{{typeIndex}}" range="{{jobTypes}}"> Type</picker>
   </view>
-  <view class="app-container">
+  <!-- <view class="app-container">
     <view >{{jobsLocation[cityIndex]}}</view>
     <view >{{salaryRanges[salaryIndex]}}</view>
-  </view>
+  </view> -->
   
-  <view wx:for="{{jobs}}" wx:for-item="job">
+  <view wx:for="{{jobs}}" wx:for-item="job" wx:key>
     <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
       <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
       <view class="content">
         <view class="title">{{job.title}}</view>
         <view class="company">{{job.company}}</view>
         <view class="city">{{job.city}}</view>
+        <view class="salary">{{job.salary_range}}</view>
+        <view class="job_type">{{job.job_type}}</view>
       </view>
     </view>
-  </view>
-
-  <view class="btn-container"> <button type="primary" bindtap="navigateToPost" class="post-btn">Post a Job</button>
   </view>
 </view>
 
