@@ -13,25 +13,37 @@
 
 .flex {
   display: flex;
+  justify-content: space-around;
+  align-content: center;
 }
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-icon {
+ height: 64rpx;
+ width: 64rpx;
+}
+
+.contact-name {
+  height: 64rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
 
 .img-logo {
   height: 300rpx;
   width: 300rpx;
   border-radius: 4px;
-}
-
-.img-avatar {
-  border-radius: 50%;
-  height: 80px;
-  width: 80px;
-}
-
-.name-avatar {
-  height: 80px;
-  display: flex;
-  align-items: center;
-  margin-left: 16px;
 }
 
 .btn-primary {
@@ -63,10 +75,6 @@
 
 .company {
   padding: 24rpx 0rpx;
-}
-
-.city {
-
 }
 
 .btn {

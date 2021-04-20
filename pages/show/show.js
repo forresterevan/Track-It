@@ -70,9 +70,10 @@ Page({
     })
   },
 
-  copyID: function() {
+  copyID: function(e) {
+    let data = e.currentTarget.dataset.text
     wx.setClipboardData({
-      data: this.data.job.employer_wechat_id,
+      data: data,
       success (res) {
         console.log(res)
         wx.showToast({
