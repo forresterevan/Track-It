@@ -78,4 +78,4 @@ Page({
       imageUrl: 'https://cloud-minapp-39669.cloud.ifanrusercontent.com/1lYpfMSFFVk42U1L.png'
     }
   }
-}
+})
