@@ -1,5 +1,5 @@
 <view class="app-container">
-  <view class="header">Post a Job</view>
+  <view class="header">Company Information</view>
 
   <!-- Form -->
   <form  bindsubmit="formSubmit">
@@ -14,6 +14,28 @@
     <view wx:if="{{loading}}" class="btn-ghost">Upload in Progress...</view>
     <view wx:if="{{!logo && !loading}}" class="btn-ghost" bindtap="uploadImage">Upload Image</view>
   </view>
+
+  <view class="section">
+    <view class="subheader">Contact Person</view>
+    <input name="contact_name" placeholder="Jack Ma" />
+  </view>
+
+  <view class="section">
+    <view class="subheader">Phone Number</view>
+    <input name="contact_number" placeholder="1234567890" />
+  </view>
+
+  <view class="section">
+    <view class="subheader subheader">Email Address</view>
+    <input name="contact_email" placeholder="hi@itsme.com" />
+  </view>
+
+  <view class="section">
+    <view class="subheader">WeChat ID</view>
+    <input name="contact_wechat" placeholder="JackMa" />
+  </view>
+
+  <view class="header" style="margin-top:48px">Job Information</view>
 
   <view class="section">
     <view class="subheader">Title</view>
