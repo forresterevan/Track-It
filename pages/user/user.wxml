@@ -31,7 +31,7 @@
   </view>
 
   <view wx:if="{{toggle === 'post'}}" wx:for="{{postedJobs}}" wx:for-item="job">
-    <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
+    <view class="card-white" data-id="{{job.id}}">
       <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
       <view class="content">
         <view class="title">{{job.title}}</view>
