@@ -69,5 +69,13 @@ Page({
     wx.navigateTo({
       url: `/pages/show/show?id=${e.currentTarget.dataset.id}`,
     })
+  },
+
+  onShareAppMessage: function() {
+    return {
+      title: 'Track-It',
+      path: '/pages/index',
+      imageUrl: 'https://cloud-minapp-39669.cloud.ifanrusercontent.com/1lYpfMSFFVk42U1L.png'
+    }
   }
-})
+}

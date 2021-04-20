@@ -38,6 +38,7 @@
         <view class="company">{{job.company}}</view>
         <view class="city">{{job.city}}</view>
         <view class="type">{{job.type}}</view>
+        <view class="progress">{{job.status}}</view>
       </view>
     </view>  
   </view>
@@ -48,7 +49,6 @@
 <!-- 
 Pseduo Code:
 1. Add login button (if the user isn't already logged in)
-2. Add a logout button (if the user is already logged in)
-3. Add a tab bar for favorites / my posted jobs
-4. Make it look good!
+2. Add a tab bar for favorites / my posted jobs
+3. Make it look good!
  -->
