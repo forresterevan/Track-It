@@ -1,5 +1,5 @@
 <view class="container">
-  <view class="header app-container">
+  <view class="filter-container">
     <picker class="picker {{city.index != 0 ? 'filter-active' : ''}}" data-type="city" bindchange="changeFilter" value="{{city.index}}" range="{{city.options}}">{{city.index == 0 ? 'City' : city.options[city.index]}}</picker>
     
     <picker class="picker {{salary.index != 0 ? 'filter-active' : ''}}" data-type="city" bindchange="changeFilter" value="{{salary.index}}" data-type="salary" range="{{salary.options}}">{{salary.index == 0 ? 'Salary' : salary.options[salary.index]}}</picker>
@@ -9,13 +9,12 @@
   
   <view wx:for="{{jobs}}" wx:for-item="job" wx:key="id">
     <view class="card-white" bindtap="navigateToShow" data-id="{{job.id}}">
-      <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
+      <image src="{{job.logo.path}}" class="card-logo" mode="aspectFill"/>
       <view class="content">
-        <view class="title">{{job.title}}</view>
-        <view class="company">{{job.company}}</view>
-        <view class="city">{{job.city}}</view>
-        <view class="salary">{{job.salary_range}}</view>
-        <view class="job_type">{{job.job_type}}</view>
+        <view class="card-title">{{job.title}}</view>
+        <view class="card-body">{{job.salary_range}}</view>
+        <view class="card-body">{{job.city}} | {{job.job_type}}</view>
+        <view class="card-body-small">{{job.company}}</view>
       </view>
     </view>
   </view>

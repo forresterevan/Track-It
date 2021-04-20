@@ -1,42 +1,35 @@
+Page {
+  background: #FAFAFA;
+}
+
 .container {
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20rpx 0;
+  padding: 0 32rpx;
   box-sizing: border-box;
-  font: Roboto Thin 100;
 } 
-.app-container {
-  /* box-sizing: border-box; */
+
+.filter-container {
   display: flex;
   flex-wrap: nowrap;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 8px;
-  min-width: 100%;
-}
-.header{
-  font-size: 18px;
-  font-weight: 500;
-  color: white;
+  padding: 16rpx 0;
+  box-sizing: border-box;
 }
 
 .switch-btn {
   background-color: #00AD59;
 }
+
 .card-white {
-  background: #fafafa;
+  background: white;
   border-radius: 4px;
   display: flex;
-  justify-content: flex-start;
-  padding: 6px;
+  padding: 24rpx;
   box-sizing: border-box;
-  margin: 5px 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  width: 700rpx;
+  margin: 48rpx 0;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
 }
+
 .content {
   box-sizing: border-box;
   display: flex;
@@ -45,6 +38,7 @@
   flex-grow: 0;
   margin-left: 6px;
 }
+
 .title {
   font-size: 20px;
 }
@@ -61,8 +55,8 @@
 }
 
 .picker {
-  margin: 0 8px;
-  padding: 8px;
+  margin: 0 16rpx;
+  padding: 16rpx;
   box-sizing: border-box;
   border-radius: 4px;
   text-align: center;
@@ -70,6 +64,7 @@
   flex-shrink: 0;
   color: #00AD59;
   border: 1px solid #00AD59;
+  background: white;
 }
 
 .post-btn {
@@ -79,24 +74,25 @@
   transform: translate(-50%);
 }
 
-.current-filter {
-  background: #fafafa;
-  border-radius: 10px;
-  box-sizing: border-box;
-  padding: 8px 10px;
-  margin: 4px;
-  font-size: small;
-  text-align: left;
-}
-
-  /* margin-top: 16px; */
-.logo {
-  min-height: 64px;
-  min-width: 64px;
-  max-height: 64px;
-  max-width: 64px;
-  border-radius: 4px;
-  padding: 10px;
+.card-logo {
+  width: 200rpx;
+  height: 200rpx;
   flex-shrink: 0;
+  border-radius: 4px;
+  margin-right: 16rpx;
+}
+.card-title {
+  font-size: 24px;
+  color: blue;
+  overflow: hidden;
+  width: 100%;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+.card-body {
+  font-size: 18px
+}
+.card-body-small{
+  font-size: 16px
 }
 
