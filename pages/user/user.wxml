@@ -20,12 +20,13 @@
 
   <view wx:if="{{toggle === 'favorite'}}" wx:for="{{favoriteJobs}}" wx:for-item="jobs">
       <view class="card-white" bindtap="navigateToShow" data-id="{{jobs.job_id.id}}">
-      <image src="{{jobs.job_id.logo.path}}" class="logo" mode="aspectFit"></image>
+      <image src="{{jobs.job_id.logo.path}}" class="card-logo" mode="aspectFit"></image>
       <view class="content">
-        <view class="title">{{jobs.job_id.title}}</view>
-        <view class="company">{{jobs.job_id.company}}</view>
-        <view class="city">{{jobs.job_id.city}}</view>
-        <view class="type">{{jobs.job_id.type}}</view>
+        <view class="card-title">{{jobs.job_id.title}}</view>
+        <view class="card-company">{{jobs.job_id.company}}</view>
+        <view class="card-city">{{jobs.job_id.city}}</view>
+        <view class="card-salary">{{jobs.job_id.salary_range}}</view>
+        <view class="card-type">{{jobs.job_id.job_type}}</view>
       </view>
     </view>
   </view>
@@ -34,11 +35,12 @@
     <view class="card-white" data-id="{{job.id}}" bindtap="{{job.status == 'Approved' ? 'navigateToShow': ''}}">
       <image src="{{job.logo.path}}" class="logo" mode="aspectFit"></image>
       <view class="content">
-        <view class="title">{{job.title}}</view>
-        <view class="company">{{job.company}}</view>
-        <view class="city">{{job.city}}</view>
-        <view class="type">{{job.type}}</view>
-        <view class="progress">{{job.status}}</view>
+        <view class="card-title">{{job.title}}</view>
+        <view class="card-company">{{job.company}}</view>
+        <view class="card-salary">{{job.salary_range}}</view>
+        <view class="card-city">{{job.city}}</view>
+        <!-- <view class="type">{{job.job_type}}</view> -->
+        <view class="card-progress">{{job.status}}</view>
       </view>
     </view>  
   </view>

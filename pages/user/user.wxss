@@ -1,17 +1,82 @@
 /* pages/user/user.wxss */
+.profile {
+  display: flex;
+  align-items: center;
+}
 .container-tabs {
   display: flex;
   justify-content: space-around;
   margin: 40rpx 0;
 }
 
+.card-white {
+  background: white;
+  border-radius: 4px;
+  display: flex;
+  padding: 24rpx;
+  box-sizing: border-box;
+  margin: 48rpx 0;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+}
+
+.card-logo {
+  width: 200rpx;
+  height: 200rpx;
+  flex-shrink: 0;
+  border-radius: 4px;
+  margin-right: 16rpx;
+}
+
+.content {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 0;
+  margin-left: 6px;
+}
+
+.card-title {
+  font-family: 'Roboto';
+  font-size: 20px;
+  color: #00AD59;
+  overflow: hidden;
+  width: 100%;
+  line-height: 24px;
+  /* margin-bottom: 8px; */
+}
+.card-company {
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+.card-city {
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+.card-salary {
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+.card-salary {
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
 .tab-active {
   color: green;
 }
-.profile {
-  display: flex;
-  align-items: center;
-}
+
 .avatar {
   border-radius: 5px 5px 0 0;
   min-width: 100px;
@@ -26,24 +91,12 @@
   align-items: center;
   margin-left: 16px;
 }
-.card-white {
-  background: #fafafa;
-  border-radius: 4px;
-  display: flex;
-  justify-content: flex-start;
-  padding: 6px;
-  box-sizing: border-box;
-  margin: 5px 8px;
-  margin-top: 15px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.2);
-  width: 650rpx;
+
+.card-body {
+  font-size: 20px;
 }
-.logo {
-  min-height: 64px;
-  min-width: 64px;
-  max-height: 64px;
-  max-width: 64px;
-  border-radius: 4px;
-  padding: 10px;
-  flex-shrink: 0;
-}
+
+
+
+
+
