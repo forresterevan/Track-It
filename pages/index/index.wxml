@@ -12,9 +12,11 @@
       <image src="{{job.logo.path}}" class="card-logo" mode="aspectFill"/>
       <view class="content">
         <view class="card-title">{{job.title}}</view>
-        <view class="card-body">{{job.salary_range}}</view>
-        <view class="card-body">{{job.city}} | {{job.job_type}}</view>
-        <view class="card-body-small">{{job.company}}</view>
+        <view class="card-company">{{job.company}}</view>
+        <view class="card-salary">{{job.salary_range}}</view>
+        <view class="card-city">{{job.city}}</view>
+        <!-- <view class="card-body">{{job.job_type}}</view> -->
+        
       </view>
     </view>
   </view>
