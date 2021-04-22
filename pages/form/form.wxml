@@ -22,7 +22,7 @@
 
   <view class="section">
     <view class="subheader">Phone Number</view>
-    <input name="contact_number" placeholder="1234567890" />
+    <input name="contact_number" placeholder="1234567890" type="number"/>
   </view>
 
   <view class="section">
