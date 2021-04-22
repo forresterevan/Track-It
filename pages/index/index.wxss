@@ -37,7 +37,8 @@ Page {
   flex-direction: column;
   justify-content: center;
   flex-grow: 0;
-  margin-left: 6px;
+  padding: 0 8px;
+  overflow: hidden;
 }
 
 .filter-active {
@@ -72,8 +73,8 @@ Page {
   height: 200rpx;
   flex-shrink: 0;
   border-radius: 4px;
-  margin-right: 16rpx;
 }
+
 .card-title {
   font-family: 'Roboto';
   font-size: 20px;
@@ -81,20 +82,23 @@ Page {
   overflow: hidden;
   width: 100%;
   line-height: 24px;
-  /* margin-bottom: 8px; */
 }
+
 .card-body {
   font-size: 20px;
 }
+
 .card-company {
   font-family: 'Roboto';
   font-size: 16px;
+}
 
-}.card-salary {
+.card-salary {
   font-family: 'Roboto';
   font-size: 16px;
+}
 
-}.card-city {
+.card-city {
   font-family: 'Roboto';
   font-size: 16px
 }

@@ -17,6 +17,7 @@
   box-sizing: border-box;
   margin: 48rpx 0;
   box-shadow: 2px 2px 4px rgba(0,0,0,0.25);
+  overflow: hidden;
 }
 
 .card-logo {
@@ -24,7 +25,6 @@
   height: 200rpx;
   flex-shrink: 0;
   border-radius: 4px;
-  margin-right: 16rpx;
 }
 
 .content {
@@ -33,7 +33,8 @@
   flex-direction: column;
   justify-content: center;
   flex-grow: 0;
-  margin-left: 6px;
+  padding: 0 8px;
+  overflow: hidden;
 }
 
 .card-title {
@@ -43,14 +44,13 @@
   overflow: hidden;
   width: 100%;
   line-height: 24px;
-  /* margin-bottom: 8px; */
-}
-.card-company {
-  font-family: 'Roboto';
-  font-size: 16px;
 }
 
-.card-city {
+.card-body {
+  font-size: 20px;
+}
+
+.card-company {
   font-family: 'Roboto';
   font-size: 16px;
 }
@@ -58,6 +58,11 @@
 .card-salary {
   font-family: 'Roboto';
   font-size: 16px;
+}
+
+.card-city {
+  font-family: 'Roboto';
+  font-size: 16px
 }
 
 .card-salary {
