@@ -72,12 +72,13 @@ Page({
 
   copyID: function(e) {
     let data = e.currentTarget.dataset.text
+    let type = e.currentTarget.dataset.type
     wx.setClipboardData({
       data: data,
       success (res) {
         console.log(res)
         wx.showToast({
-          title: 'Copied',
+          title: `${type} Copied`,
           icon: 'success',
           duration: 1500
         }) 
@@ -103,5 +104,17 @@ Page({
     Favorites.setQuery(query).find().then(res => {
       this.setData({favorite: res.data.objects[0]})
     })
-  }
+  },
+  onShareAppMessage: function() {
+    let job = this.data.job
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
+    return {
+      title: 'Track-It',
+      path: `/pages/show/show?id=${job.id}`,
+      imageUrl: job.logo.path || 'https://cloud-minapp-39669.cloud.ifanrusercontent.com/1lYpfMSFFVk42U1L.png'
+    }
+  },
 })

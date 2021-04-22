@@ -13,11 +13,15 @@
     <view class="company">{{job.company}}</view>
     <view class="city">{{job.city}}</view>
 
-    <button wx:if="{{currentUser && favorite}}" class="btn-ghost" bindtap='removeFavorite' type='disabled'>Remove from Favorites</button>
+    <view class="buttons">
+      <button wx:if="{{currentUser && favorite}}" class="btn-ghost" bindtap='removeFavorite' type='disabled'>Remove</button>
 
-    <button wx:elif="{{currentUser && !favorite}}" class="btn-primary" bindtap='saveFavorite' type='primary'>Favorite</button>
+      <button wx:elif="{{currentUser && !favorite}}" class="btn-primary" bindtap='saveFavorite'>Favorite</button>
 
-    <button wx:elif="{{canIUse && GetUserProfile}}" class="btn-ghost" bindtap="onGotUserInfo"> You need to Login</button>
+      <button wx:elif="{{canIUse && GetUserProfile}}" class="btn-ghost" bindtap="onGotUserInfo"> You need to Login</button>
+
+      <button class="button-share" open-type="share">Share</button>
+    </view>
   </view>
 
   <!-- <view class="spacing"></view> -->
@@ -25,9 +29,9 @@
   <view class="section-container flex">
     <view class="contact-name">{{job.contact_name}}</view>
     <view class="icons">
-      <image src="/image/phone.png" wx:if="{{job.contact_number}}" class="contact-icon" data-text="{{job.contact_number}}" bindtap="copyID"></image>
-      <image src="/image/email.png" wx:if="{{job.contact_email}}" class="contact-icon" data-text="{{job.contact_email}}" bindtap="copyID"></image>
-      <image src="/image/wechat.png" wx:if="{{job.contact_wechat}}" class="contact-icon" data-text="{{job.contact_wechat}}" bindtap="copyID"></image>
+      <image src="/image/phone.png" wx:if="{{job.contact_number}}" class="contact-icon" data-text="{{job.contact_number}}" data-type="Number" bindtap="copyID"></image>
+      <image src="/image/email.png" wx:if="{{job.contact_email}}" class="contact-icon" data-text="{{job.contact_email}}" data-type="Email" bindtap="copyID"></image>
+      <image src="/image/wechat.png" wx:if="{{job.contact_wechat}}" class="contact-icon" data-text="{{job.contact_wechat}}" data-type="Wechat" bindtap="copyID"></image>
     </view>
     
   </view>
