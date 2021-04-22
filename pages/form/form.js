@@ -69,6 +69,7 @@ Page({
       contact_wechat: e.detail.value.contact_wechat,
       job_type: type.values[type.index],
       description: e.detail.value.description,
+      city: e.detail.value.city,
       salary_range: salary.values[salary.index],
       location: this.data.address,
       logo: this.data.logo.file
@@ -89,6 +90,7 @@ Page({
   chooseLocation: function () {
     wx.chooseLocation({
       success: (result) => {
+        console.log(result)
         this.setData({ address: result.address })
       }
     })

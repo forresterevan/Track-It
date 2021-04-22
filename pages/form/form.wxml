@@ -66,6 +66,11 @@
   </view>
 
   <view class="section">
+    <view class="subheader">City</view>
+    <input name="city" placeholder="City..." />
+  </view>
+
+  <view class="section">
     <view class="subheader">Description</view>
     <textarea name="description" maxlength="500" placeholder="Write your description here..." />
   </view>
